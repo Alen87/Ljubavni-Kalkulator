@@ -2,11 +2,14 @@ package alen;
 
 import java.util.Arrays;
 
+import javax.swing.JOptionPane;
+
 public class LjubavniKalkulator {
 
 	public LjubavniKalkulator() {
 
-		String ime1 = " Marta", ime2 = "Manuel";
+		String ime1 =JOptionPane.showInputDialog("Unesi  prvo ime");
+		String ime2 =JOptionPane.showInputDialog("Unesi drugo ime");
 
 		String zbroj = ime1.toLowerCase().trim() + ime2.toLowerCase().trim();
 
