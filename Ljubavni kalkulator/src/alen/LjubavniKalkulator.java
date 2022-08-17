@@ -1,5 +1,7 @@
 package alen;
 
+import java.util.Arrays;
+
 public class LjubavniKalkulator {
 	
 
@@ -22,7 +24,7 @@ public class LjubavniKalkulator {
 		
 		
 		String zbrojImena= ime1.trim().toLowerCase() + ime2.trim().toLowerCase();
-		
+		int[]niz= new int[zbrojImena.length()];
 		
 		System.out.println(ime1 + "    " + ime2);
 		int brojac = 0;
@@ -35,11 +37,11 @@ public class LjubavniKalkulator {
 				}
 			}
 			
+			niz[i]=brojac;
 			
-			System.out.print(brojac);
 		}
 		
-		
+		System.out.print(Arrays.toString(niz));
 		
 
 		
