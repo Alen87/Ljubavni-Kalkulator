@@ -3,6 +3,7 @@ package alen;
 import javax.swing.JOptionPane;
 
 public class LjubavniKalkulatorFor {
+
 	public static int izracunaj(String niz) {
 
 		if (niz.length() <= 2) {
@@ -25,23 +26,26 @@ public class LjubavniKalkulatorFor {
 
 	}
 
-	public static void main(String[] args) {
-		String ime1;
-		String ime2;
-
-		try {
-			ime1 = JOptionPane.showInputDialog("Unesi  prvo ime");
-			ime2 = JOptionPane.showInputDialog("Unesi  drugo ime");
-
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Obvezan  unos");
-			return;
+	public static String ucitajString(String poruka) {
+		String s;
+		while (true) {
+			s = JOptionPane.showInputDialog(poruka);
+			if (s.trim().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Obavezan unos");
+				continue;
+			}
+			return s;
 		}
+	}
+
+	public LjubavniKalkulatorFor() {
+		String ime1 = ucitajString("Unesi prvo ime");
+		String ime2 = ucitajString("Unesi drugo ime");
+
+		System.out.printf("%s %8s%n", ime1, ime2);
 
 		String zbrojImena = ime1.trim().toLowerCase() + ime2.trim().toLowerCase();
 		StringBuilder zbroj = new StringBuilder();
-
-		System.out.printf("%s %8s%n", ime1, ime2);
 
 		int brojac;
 
@@ -60,4 +64,9 @@ public class LjubavniKalkulatorFor {
 
 	}
 
+	public static void main(String[] args) {
+
+		new LjubavniKalkulatorFor();
+
+	}
 }

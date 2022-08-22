@@ -29,20 +29,22 @@ public class LjubavniKalkulatorWhile {
 		return izracunaj(noviNiz.toString());
 	}
 
-	public static void main(String[] args) {
-
-		String ime1;
-		String ime2;
-
-		try {
-
-			ime1 = JOptionPane.showInputDialog("Unesi prvo ime");
-			ime2 = JOptionPane.showInputDialog("Unesi drugo ime");
-
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Obvezan unos");
-			return;
+	public static String ucitajString(String poruka) {
+		String s;
+		while (true) {
+			s = JOptionPane.showInputDialog(poruka);
+			if (s.trim().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Obavezan unos");
+				continue;
+			}
+			return s;
 		}
+	}
+
+	public LjubavniKalkulatorWhile() {
+
+		String ime1 = ucitajString("Unesi prvo ime;");
+		String ime2 = ucitajString("Unesi drugo ime:");
 
 		String zbrojImena = ime1.trim().toLowerCase() + ime2.trim().toLowerCase();
 		StringBuilder zbroj = new StringBuilder();
@@ -64,6 +66,11 @@ public class LjubavniKalkulatorWhile {
 		}
 		System.out.println(zbroj);
 		izracunaj(zbroj.toString());
+
+	}
+
+	public static void main(String[] args) {
+		new LjubavniKalkulatorWhile();
 
 	}
 
